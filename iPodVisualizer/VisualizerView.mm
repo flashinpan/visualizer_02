@@ -24,6 +24,7 @@
   self = [super initWithFrame:frame];
   if (self) {
     [self setBackgroundColor:[UIColor blackColor]];
+      
     emitterLayer = (CAEmitterLayer *)self.layer;
     
 //  CGFloat width = MAX(frame.size.width, frame.size.height);
@@ -31,7 +32,10 @@
       CGFloat width = frame.size.width;
       CGFloat height = frame.size.height;
     emitterLayer.emitterPosition = CGPointMake(width/2, height/2);
-    emitterLayer.emitterSize = CGSizeMake(width-80, 60);
+//  emitterLayer.emitterSize = CGSizeMake(width-80, 60);
+      //AL: PLAY WITH THE FOLLOWING LINE
+    emitterLayer.emitterSize = CGSizeMake(width-270, height-120);
+
     emitterLayer.emitterShape = kCAEmitterLayerRectangle;
     emitterLayer.renderMode = kCAEmitterLayerAdditive;
     
