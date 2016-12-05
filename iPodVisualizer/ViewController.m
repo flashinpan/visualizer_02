@@ -65,7 +65,7 @@
     [_navBar setBarStyle:UIBarStyleBlackTranslucent];
     [_navBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     
-    UINavigationItem *navTitleItem = [[UINavigationItem alloc] initWithTitle:@"Music Visulizer"];
+    UINavigationItem *navTitleItem = [[UINavigationItem alloc] initWithTitle:@"Music Visualizer"];
     [_navBar pushNavigationItem:navTitleItem animated:NO];
     
     [self.view addSubview:_navBar];
