@@ -71,7 +71,9 @@
     [self.view addSubview:_navBar];
     
     // ToolBar
-    self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 320, frame.size.width, 44)];
+  //  self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 320, frame.size.width, 44)];
+    self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, frame.size.height, frame.size.width, 44)];
+
     [_toolBar setBarStyle:UIBarStyleBlackTranslucent];
     [_toolBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     
