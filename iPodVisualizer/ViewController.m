@@ -40,7 +40,7 @@
     self.visualizer = [[VisualizerView alloc] initWithFrame:self.view.frame];
     [_visualizer setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
     [_backgroundView addSubview:_visualizer];
-  
+    
     [self configureAudioPlayer];
 }
 
@@ -57,8 +57,26 @@
     self.backgroundView = [[UIView alloc] initWithFrame:frame];
     [_backgroundView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
     [_backgroundView setBackgroundColor:[UIColor blackColor]];
-    
     [self.view addSubview:_backgroundView];
+    
+    
+   // CGRect imageFrame = CGRectMake(x, y, width, height);
+    
+    UIImage *image1 = [UIImage imageNamed:@"single.png"];
+   // UIImage *image2 = // however you obtain your 2nd image
+    
+    UIImageView *imgView1 = [[UIImageView alloc] initWithImage:image1];
+    // Adjust the alpha of the view
+    imgView1.alpha = .5f; // This is most advisably 1.0 (always)
+    imgView1.backgroundColor = [UIColor clearColor];
+    imgView1.frame = frame;
+    
+    //UIImageView *imgView2 = [[UIImageView alloc] initWithImage:image2];
+    // Adjust the alpha of the view
+    //imgView1.alpha = 0.5f; // or whatever you find practical
+    //imgView1.backgroundColor = [UIColor clearColor];
+    //imgView2.frame = imageFrame;
+    [self.view addSubview:imgView1];
     
     // NavBar
     self.navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, -44, frame.size.width, 44)];
