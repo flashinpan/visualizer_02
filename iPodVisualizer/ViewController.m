@@ -19,6 +19,8 @@
 @property (strong, nonatomic) NSArray *pauseItems;
 @property (strong, nonatomic) UIBarButtonItem *playBBI;
 @property (strong, nonatomic) UIBarButtonItem *pauseBBI;
+@property (strong, nonatomic) UIBarButtonItem *ffBBI;
+@property (strong, nonatomic) UIBarButtonItem *rewBBI;
 
 // Add properties here
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;
@@ -37,9 +39,24 @@
 
     [self configureAudioSession];
   
+    UIImage *blueGradient = [UIImage imageNamed:@"BG@2x.png"];
+    UIImageView *blueGradientView = [[UIImageView alloc] initWithImage:blueGradient];
+    blueGradientView.frame = self.view.frame;
+    
     self.visualizer = [[VisualizerView alloc] initWithFrame:self.view.frame];
     [_visualizer setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
+    [_backgroundView addSubview:blueGradientView];
     [_backgroundView addSubview:_visualizer];
+
+    UIImage *image1 = [UIImage imageNamed:@"HOME-overlay@2x.png"];
+    UIImageView *imgView1 = [[UIImageView alloc] initWithImage:image1];
+   // imgView1.alpha = .5f; // This is most advisably 1.0 (always)
+    imgView1.alpha = 1.0;
+    imgView1.backgroundColor = [UIColor clearColor];
+    imgView1.frame = self.view.frame;
+    [self.view addSubview:imgView1];
+    [self.view bringSubviewToFront:imgView1];
+
     
     [self configureAudioPlayer];
 }
@@ -60,30 +77,22 @@
     [self.view addSubview:_backgroundView];
     
     
-   // CGRect imageFrame = CGRectMake(x, y, width, height);
     
-    UIImage *image1 = [UIImage imageNamed:@"single.png"];
-   // UIImage *image2 = // however you obtain your 2nd image
-    
+    UIImage *image1 = [UIImage imageNamed:@"HOME-overlay@2x.png"];
     UIImageView *imgView1 = [[UIImageView alloc] initWithImage:image1];
-    // Adjust the alpha of the view
     imgView1.alpha = .5f; // This is most advisably 1.0 (always)
     imgView1.backgroundColor = [UIColor clearColor];
     imgView1.frame = frame;
-    
-    //UIImageView *imgView2 = [[UIImageView alloc] initWithImage:image2];
-    // Adjust the alpha of the view
-    //imgView1.alpha = 0.5f; // or whatever you find practical
-    //imgView1.backgroundColor = [UIColor clearColor];
-    //imgView2.frame = imageFrame;
     [self.view addSubview:imgView1];
+    [self.view bringSubviewToFront:imgView1];
+
     
     // NavBar
     self.navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, -44, frame.size.width, 44)];
     [_navBar setBarStyle:UIBarStyleBlackTranslucent];
     [_navBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     
-    UINavigationItem *navTitleItem = [[UINavigationItem alloc] initWithTitle:@"Music Visualizer"];
+    UINavigationItem *navTitleItem = [[UINavigationItem alloc] initWithTitle:@"Sleep Number Mood Bed"];
     [_navBar pushNavigationItem:navTitleItem animated:NO];
     
     [self.view addSubview:_navBar];
@@ -92,8 +101,10 @@
   //  self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 320, frame.size.width, 44)];
     self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, frame.size.height, frame.size.width, 44)];
 
-    [_toolBar setBarStyle:UIBarStyleBlackTranslucent];
+   // [_toolBar setBarStyle:UIBarStyleBlackTranslucent];
+    [_toolBar setBarStyle:UIBarStyleBlackOpaque];
     [_toolBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    [_toolBar setTintColor:[UIColor grayColor]];
     
     UIBarButtonItem *pickBBI = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(pickSong)];
     
@@ -101,10 +112,15 @@
     
     self.pauseBBI = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(playPause)];
     
+    //dummy buttoms for mockup
+    self.ffBBI = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(playPause)];
+    self.rewBBI = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(playPause)];
+
+    
     UIBarButtonItem *leftFlexBBI = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *rightFlexBBI = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
-    self.playItems = [NSArray arrayWithObjects:pickBBI, leftFlexBBI, _playBBI, rightFlexBBI, nil];
+    self.playItems = [NSArray arrayWithObjects:pickBBI, leftFlexBBI, _rewBBI, leftFlexBBI, _playBBI, rightFlexBBI, _ffBBI, rightFlexBBI, nil];
     self.pauseItems = [NSArray arrayWithObjects:pickBBI, leftFlexBBI, _pauseBBI, rightFlexBBI, nil];
     
     [_toolBar setItems:_playItems];

@@ -12,6 +12,7 @@
 
 @implementation VisualizerView {
   CAEmitterLayer *emitterLayer;
+  //CALayer *layer;
   MeterTable meterTable;
 }
 
@@ -23,9 +24,11 @@
 {
   self = [super initWithFrame:frame];
   if (self) {
-    [self setBackgroundColor:[UIColor blackColor]];
+    [self setBackgroundColor:[UIColor clearColor]];
+
       
     emitterLayer = (CAEmitterLayer *)self.layer;
+    
     
 //  CGFloat width = MAX(frame.size.width, frame.size.height);
 //  CGFloat height = MIN(frame.size.width, frame.size.height);
@@ -75,6 +78,7 @@
     cell.emissionRange = M_PI * 2;
     
     emitterLayer.emitterCells = @[cell];
+      
 
     CADisplayLink *dpLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(update)];
     [dpLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];

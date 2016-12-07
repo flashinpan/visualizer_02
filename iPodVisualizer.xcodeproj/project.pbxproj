@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33134C911DF61B0D00AD5E1D /* single.png in Resources */ = {isa = PBXBuildFile; fileRef = 33134C901DF61B0D00AD5E1D /* single.png */; };
+		33134C931DF7703E00AD5E1D /* HOME-overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33134C921DF7703E00AD5E1D /* HOME-overlay@2x.png */; };
+		33134C951DF8790D00AD5E1D /* BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33134C941DF8790D00AD5E1D /* BG@2x.png */; };
 		953EC126172A35E7000BB437 /* DemoSong.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 953EC125172A35E7000BB437 /* DemoSong.m4a */; };
 		953EC128172A36B5000BB437 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953EC127172A36B5000BB437 /* AVFoundation.framework */; };
 		953EC12A172A3C25000BB437 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953EC129172A3C25000BB437 /* QuartzCore.framework */; };
@@ -27,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33134C901DF61B0D00AD5E1D /* single.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single.png; sourceTree = "<group>"; };
+		33134C921DF7703E00AD5E1D /* HOME-overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HOME-overlay@2x.png"; sourceTree = "<group>"; };
+		33134C941DF8790D00AD5E1D /* BG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BG@2x.png"; sourceTree = "<group>"; };
 		953EC125172A35E7000BB437 /* DemoSong.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = DemoSong.m4a; sourceTree = "<group>"; };
 		953EC127172A36B5000BB437 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		953EC129172A3C25000BB437 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -134,6 +140,9 @@
 		C11E4EA917071EE000BCF699 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				33134C941DF8790D00AD5E1D /* BG@2x.png */,
+				33134C921DF7703E00AD5E1D /* HOME-overlay@2x.png */,
+				33134C901DF61B0D00AD5E1D /* single.png */,
 				C11E4EAA17071EE000BCF699 /* particleTexture.png */,
 			);
 			path = Resources;
@@ -205,9 +214,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33134C931DF7703E00AD5E1D /* HOME-overlay@2x.png in Resources */,
 				C11E4E9717071E6400BCF699 /* InfoPlist.strings in Resources */,
 				C11E4E9F17071E6400BCF699 /* Default.png in Resources */,
+				33134C911DF61B0D00AD5E1D /* single.png in Resources */,
 				C11E4EA117071E6400BCF699 /* Default@2x.png in Resources */,
+				33134C951DF8790D00AD5E1D /* BG@2x.png in Resources */,
 				C11E4EA317071E6400BCF699 /* Default-568h@2x.png in Resources */,
 				C11E4EAB17071EE000BCF699 /* particleTexture.png in Resources */,
 				953EC126172A35E7000BB437 /* DemoSong.m4a in Resources */,
